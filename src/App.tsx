@@ -7,7 +7,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
             </header>
-            <p> Sara Heintzelman </p>
+            <p>Sara Heintzelman</p>
             <p>Hello World</p>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
