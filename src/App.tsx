@@ -13,7 +13,7 @@ function App(): JSX.Element {
             <p>Hello World</p>
             <img
                 src="https://cdn.discordapp.com/attachments/404501943046635521/1017062602221834351/unknown.png"
-                alt="A mottled grey background with a stock art image of a frog on the side, without the white background removed, and the text 'Graphic design is my passion'"
+                alt="A textured grey background with a stock art image of a frog on the side, without the white background removed, and the text 'Graphic design is my passion'"
             />
             <p>List of the four best Pokemon, objectively.</p>
             <ol>
