@@ -25,6 +25,12 @@
     color: #1d3b3b;
 }
 
+.rectangle {
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+
 .App-link {
     color: #61dafb;
 }
