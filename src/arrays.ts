@@ -1,4 +1,8 @@
 /**
+ *  4 unfinished tests
+ */
+
+/**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
  * an empty array. If there is one element, the resulting list should
@@ -11,6 +15,7 @@ export function bookEndList(numbers: number[]): number[] {
 /**
  * Consume an array of numbers, and return a new array where each
  * number has been tripled (multiplied by 3).
+ * ---COMPLETE
  */
 export function tripleNumbers(numbers: number[]): number[] {
     const tripled: number[] = numbers.map((num: number): number => num * 3);
@@ -20,9 +25,13 @@ export function tripleNumbers(numbers: number[]): number[] {
 /**
  * Consume an array of strings and convert them to integers. If
  * the number cannot be parsed as an integer, convert it to 0 instead.
+ * ---COMPLETE
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const integers = numbers.map((num: string): number =>
+        Number(num) % 1 === 0 ? Number(num) : 0
+    );
+    return integers;
 }
 
 /**
@@ -40,14 +49,26 @@ export const removeDollars = (amounts: string[]): number[] => {
  * Consume an array of messages and return a new list of the messages. However, any
  * string that ends in "!" should be made uppercase. Also, remove any strings that end
  * in question marks ("?").
+ * --- COMPLETE
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const shout = messages
+        .map((message: string): string =>
+            message.charAt(message.length - 1) === "!"
+                ? message.toUpperCase()
+                : message
+        )
+        .filter(
+            (message: string): boolean =>
+                message.charAt(message.length - 1) !== "?"
+        );
+    return shout;
 };
 
 /**
  * Consumes an array of words and returns the number of words that are LESS THAN
  * 4 letters long.
+ * ---COMPLETE
  */
 export function countShortWords(words: string[]): number {
     const shortWords = words.filter((word): boolean => word.length < 4);
@@ -58,6 +79,7 @@ export function countShortWords(words: string[]): number {
  * Consumes an array of colors (e.g., 'red', 'purple') and returns true if ALL
  * the colors are either 'red', 'blue', or 'green'. If an empty list is given,
  * then return true.
+ * ---COMPLETE
  */
 export function allRGB(colors: string[]): boolean {
     const everyRGB = colors.every(
