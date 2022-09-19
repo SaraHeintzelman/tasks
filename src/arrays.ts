@@ -7,6 +7,7 @@
  * JUST the first and last number. If there are no elements, return
  * an empty array. If there is one element, the resulting list should
  * the number twice.
+ * ---COMPLETE
  */
 export function bookEndList(numbers: number[]): number[] {
     let bookEnd: number[];
@@ -45,6 +46,7 @@ export function stringsToIntegers(numbers: string[]): number[] {
  * the strings MAY have "$" symbols at the beginning, in which case
  * those should be removed. If the result cannot be parsed as an integer,
  * convert it to 0 instead.
+ * ---COMPLETE
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
@@ -108,7 +110,14 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const addition: string =
+        addends.reduce(
+            (currentTotal: number, num: number) => currentTotal + num,
+            0
+        ) +
+        "=" +
+        (addends.length === 0 ? 0 : addends.join("+"));
+    return addition;
 }
 
 /**
