@@ -1,6 +1,8 @@
 /**
- *  2 unfinished tests
+ *  1 unfinished tests
  */
+
+import { isNamespaceExportDeclaration } from "typescript";
 
 /**
  * Consume an array of numbers, and return a new array containing
@@ -108,6 +110,7 @@ export function allRGB(colors: string[]): boolean {
  *
  * For instance, the array [1, 2, 3] would become "6=1+2+3".
  * And the array [] would become "0=0".
+ * ---COMPLETE
  */
 export function makeMath(addends: number[]): string {
     const addition: string =
@@ -128,7 +131,28 @@ export function makeMath(addends: number[]): string {
  *
  * For instance, the array [1, 9, -5, 7] would become [1, 9, -5, 10, 7]
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
+ * ---COMPLETED
+ * prettier is screaming at me but I can't really see why, prettier also cannot see why, because it can't fix it, will check back later
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const firstIndex = values.findIndex((value: number): boolean => value < 0);
+    const sum =
+        firstIndex === -1
+            ? values.reduce(
+                  (currentTotal: number, num: number) => currentTotal + num,
+                  0
+              )
+            : values
+                  .slice(0, firstIndex)
+                  .reduce(
+                      (currentTotal: number, num: number) => currentTotal + num,
+                      0
+                  );
+    const injected = [...values];
+    injected.splice(
+        firstIndex !== -1 ? firstIndex + 1 : injected.length,
+        0,
+        sum
+    );
+    return injected;
 }
