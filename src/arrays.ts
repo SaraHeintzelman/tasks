@@ -1,5 +1,5 @@
 /**
- *  4 unfinished tests
+ *  2 unfinished tests
  */
 
 /**
@@ -9,7 +9,13 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    let bookEnd: number[];
+    if (numbers.length === 0) {
+        bookEnd = [];
+    } else {
+        bookEnd = [numbers[0], numbers[numbers.length - 1]];
+    }
+    return bookEnd;
 }
 
 /**
