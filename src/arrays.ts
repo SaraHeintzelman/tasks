@@ -2,7 +2,7 @@
  *  1 unfinished tests
  */
 
-import { isNamespaceExportDeclaration } from "typescript";
+//import { isNamespaceExportDeclaration } from "typescript";
 
 /**
  * Consume an array of numbers, and return a new array containing
