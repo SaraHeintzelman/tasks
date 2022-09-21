@@ -1,7 +1,8 @@
 import { stringify } from "querystring";
+import { isQuestion } from "./functions";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 3 incomplete tests left
+// 2 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -125,9 +126,16 @@ export function publishQuestion(question: Question): Question {
  * `options`, `expected`, and `points` without changes. The `name` should be copied
  * over as "Copy of ORIGINAL NAME" (e.g., so "Question 1" would become "Copy of Question 1").
  * The `published` field should be reset to false.
+ * ---COMPLETE
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return oldQuestion;
+    const duplicate: Question = {
+        ...oldQuestion,
+        id: id,
+        name: "Copy of " + oldQuestion.name,
+        published: false
+    };
+    return duplicate;
 }
 
 /**
