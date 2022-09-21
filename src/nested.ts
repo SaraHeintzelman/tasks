@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 14 failing tests
+// 13 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -34,12 +34,16 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
 /***
  * Consumes an array of questions and returns the question with the given `id`. If the
  * question is not found, return `null` instead.
+ * ---COMPLETE
  */
 export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    return null;
+    const IDquestion = questions.find(
+        (question: Question): boolean => question.id === id
+    );
+    return IDquestion !== undefined ? IDquestion : null;
 }
 
 /**
