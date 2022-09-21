@@ -1,7 +1,8 @@
+import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 15 failing tests
+// 14 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -18,9 +19,16 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * Consumes an array of questions and returns a new array of only the questions that are
  * considered "non-empty". An empty question has an empty string for its `body` and
  * `expected`, and an empty array for its `options`.
+ * ---COMPLETE
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    const nonEmptyQuestions = questions.filter(
+        (question: Question): boolean =>
+            question.body.trim().length !== 0 ||
+            question.expected.trim().length !== 0 ||
+            question.options.length !== 0
+    );
+    return nonEmptyQuestions;
 }
 
 /***
