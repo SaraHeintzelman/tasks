@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 4 incomplete tests left
+// 3 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -103,7 +103,7 @@ export function toMarkdown(question: Question): string {
  * ---COMPLETE
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    const newQuestion = { ...question, name: newName };
+    const newQuestion: Question = { ...question, name: newName };
     return newQuestion;
 }
 
@@ -111,9 +111,13 @@ export function renameQuestion(question: Question, newName: string): Question {
  * Return a new version of the given question, except the `published` field
  * should be inverted. If the question was not published, now it should be
  * published; if it was published, now it should be not published.
+ * ---COMPLETE
  */
 export function publishQuestion(question: Question): Question {
-    return question;
+    const swappedPublication: Question = question.published
+        ? { ...question, published: false }
+        : { ...question, published: true };
+    return swappedPublication;
 }
 
 /**
