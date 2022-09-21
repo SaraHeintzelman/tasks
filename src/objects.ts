@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 7 incomplete tests left
+// 6 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -62,9 +62,11 @@ export function isValid(question: Question, answer: string): boolean {
  * `id` and first 10 characters of the `name`. The two strings should be
  * separated by ": ". So for example, the question with id 9 and the
  * name "My First Question" would become "9: My First Q".
+ * ---COMPLETE
  */
 export function toShortForm(question: Question): string {
-    return "";
+    const shortForm: string = question.id + ": " + question.name.slice(0, 10);
+    return shortForm;
 }
 
 /**
