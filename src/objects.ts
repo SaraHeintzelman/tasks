@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 9 incomplete tests left
+// 8 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -32,9 +32,14 @@ export function makeBlankQuestion(
  * the `expected`, ignoring capitalization and trimming any whitespace.
  *
  * HINT: Look up the `trim` and `toLowerCase` functions.
+ * ---COMPLETE
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    const correct: boolean =
+        question.expected.trim().toLowerCase() === answer.trim().toLowerCase()
+            ? true
+            : false;
+    return correct;
 }
 
 /**
