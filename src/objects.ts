@@ -1,5 +1,5 @@
-import { stringify } from "querystring";
-import { isQuestion } from "./functions";
+//import { stringify } from "querystring";
+//import { isQuestion } from "./functions";
 import { Question, QuestionType } from "./interfaces/question";
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
