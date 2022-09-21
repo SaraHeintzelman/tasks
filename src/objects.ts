@@ -2,7 +2,7 @@ import { stringify } from "querystring";
 import { isQuestion } from "./functions";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 2 incomplete tests left
+// 1 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -144,9 +144,14 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * its own separate copy of the `options` list, rather than the same reference
  * to the original question's list!
  * Check out the subsection about "Nested Fields" for more information.
+ * ---COMPLETE
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const expandedOptions: Question = {
+        ...question,
+        options: [...question.options, newOption]
+    };
+    return expandedOptions;
 }
 
 /**
