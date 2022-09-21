@@ -1,8 +1,6 @@
 import { stringify } from "querystring";
 import { isQuestion } from "./functions";
 import { Question, QuestionType } from "./interfaces/question";
-
-// 1 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -161,6 +159,7 @@ export function addOption(question: Question, newOption: string): Question {
  * The `published` status should be set to false.
  * Notice that the second Question is provided as just an object with a `points`
  * field; but the function call would be the same as if it were a `Question` type!
+ * ---COMPLETE
  */
 export function mergeQuestion(
     id: number,
@@ -168,5 +167,12 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion: Question = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        points: points,
+        published: false
+    };
+    return newQuestion;
 }
