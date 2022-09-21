@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 5 incomplete tests left
+// 4 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -100,9 +100,11 @@ export function toMarkdown(question: Question): string {
 /**
  * Return a new version of the given question, except the name should now be
  * `newName`.
+ * ---COMPLETE
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const newQuestion = { ...question, name: newName };
+    return newQuestion;
 }
 
 /**
