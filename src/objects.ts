@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 8 incomplete tests left
+// 7 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -47,9 +47,14 @@ export function isCorrect(question: Question, answer: string): boolean {
  * the `answer` is valid (but not necessarily correct). For a `short_answer_question`,
  * any answer is valid. But for a `multiple_choice_question`, the `answer` must
  * be exactly one of the options.
+ * ---COMPLETE
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    const valid: boolean =
+        question.type === "short_answer_question"
+            ? true
+            : question.options.includes(answer);
+    return valid;
 }
 
 /**
