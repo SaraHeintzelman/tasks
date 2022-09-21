@@ -1,7 +1,7 @@
 import { stringify } from "querystring";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 6 incomplete tests left
+// 5 incomplete tests left
 /**
  * Create a new blank question with the given `id`, `name`, and `type. The `body` and
  * `expected` should be empty strings, the `options` should be an empty list, the `points`
@@ -85,9 +85,16 @@ export function toShortForm(question: Question): string {
  * |- Option 3                  |
  * ------------------------------
  * Check the unit tests for more examples of what this looks like!
+ * ---COMPLETE
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    const optionsText: string =
+        question.type === "multiple_choice_question"
+            ? "\n" + "- " + question.options.join("\n- ")
+            : "";
+    const markdownString: string =
+        "# " + question.name + "\n" + question.body + optionsText;
+    return markdownString;
 }
 
 /**
