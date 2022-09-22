@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 12 failing tests
+// 11 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -61,9 +61,13 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
 /***
  * Consumes an array of questions and returns a new array containing just the names of the
  * questions, as an array.
+ * ---COMPLETE
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const questionNames: string[] = questions.map(
+        (quest1: Question): string => quest1.name
+    );
+    return questionNames;
 }
 
 /***
