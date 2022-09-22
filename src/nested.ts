@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 11 failing tests
+// 10 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -72,9 +72,17 @@ export function getNames(questions: Question[]): string[] {
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
+ * ---COMPLETE
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const questionPoints: number[] = questions.map(
+        (quest2: Question): number => quest2.points
+    );
+    const sum: number = questionPoints.reduce(
+        (currentTotal: number, num2: number) => currentTotal + num2,
+        0
+    );
+    return sum;
 }
 
 /***
