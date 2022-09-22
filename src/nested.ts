@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 13 failing tests
+// 12 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -49,9 +49,13 @@ export function findQuestion(
 /**
  * Consumes an array of questions and returns a new array that does not contain the question
  * with the given `id`.
+ * ---COMPLETE
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const questionRemoved = questions.filter(
+        (quest1: Question): boolean => quest1.id !== id
+    );
+    return questionRemoved;
 }
 
 /***
