@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 10 failing tests
+// 8 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -75,11 +75,9 @@ export function getNames(questions: Question[]): string[] {
  * ---COMPLETE
  */
 export function sumPoints(questions: Question[]): number {
-    const questionPoints: number[] = questions.map(
-        (quest2: Question): number => quest2.points
-    );
-    const sum: number = questionPoints.reduce(
-        (currentTotal: number, num2: number) => currentTotal + num2,
+    const sum = questions.reduce(
+        (totalSum: number, quest4: Question): number =>
+            totalSum + quest4.points,
         0
     );
     return sum;
@@ -87,9 +85,15 @@ export function sumPoints(questions: Question[]): number {
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
+ * ---COMPLETE
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const sum = questions.reduce(
+        (totalSum: number, quest5: Question): number =>
+            quest5.published ? totalSum + quest5.points : totalSum + 0,
+        0
+    );
+    return sum;
 }
 
 /***
@@ -108,9 +112,24 @@ id,name,options,points,published
 9,Shapes,3,2,false
 ` *
  * Check the unit tests for more examples!
+ * ---COMPLETE
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const lines: string[] = questions.map(
+        (quest2: Question): string =>
+            quest2.id +
+            "," +
+            quest2.name +
+            "," +
+            quest2.options.length +
+            "," +
+            quest2.points +
+            "," +
+            quest2.published
+    );
+    const CSVformat: string =
+        "id,name,options,points,published\n" + lines.join("\n");
+    return CSVformat;
 }
 
 /**
