@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 8 failing tests
+// 7 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -136,9 +136,18 @@ export function toCSV(questions: Question[]): string {
  * Consumes an array of Questions and produces a corresponding array of
  * Answers. Each Question gets its own Answer, copying over the `id` as the `questionId`,
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
+ * ---COMPLETE
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    const answers: Answer[] = questions.map(
+        (quest1: Question): Answer => ({
+            questionId: quest1.id,
+            text: "",
+            submitted: false,
+            correct: false
+        })
+    );
+    return answers;
 }
 
 /***
