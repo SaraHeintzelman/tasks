@@ -3,7 +3,7 @@ import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { makeBlankQuestion } from "./objects";
 
-// 3 failing tests
+// 1 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -220,13 +220,40 @@ export function renameQuestionById(
  * Question should be the same EXCEPT that its `type` should now be the `newQuestionType`
  * AND if the `newQuestionType` is no longer "multiple_choice_question" than the `options`
  * must be set to an empty list.
+ * ---COMPLETE
  */
 export function changeQuestionTypeById(
     questions: Question[],
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    const changedType: Question[] = questions.map(
+        (quest2: Question): Question =>
+            targetId === quest2.id
+                ? newQuestionType === "multiple_choice_question"
+                    ? { ...quest2, type: newQuestionType }
+                    : { ...quest2, type: newQuestionType, options: [] }
+                : { ...quest2 }
+    );
+    return changedType;
+}
+/**
+ * a small helper function for editOptions, takes the question, duplicates the options,
+ * then splices the new option into it's correct space. to be used when the targetOptionIndex is not
+ * -1
+ */
+export function editOptionsHelper(
+    question: Question,
+    targetOptionIndex: number,
+    newOption: string
+): Question {
+    const newOptions = [...question.options];
+    newOptions.splice(targetOptionIndex, 1, newOption);
+    const fixedQuestion: Question = {
+        ...question,
+        options: [...newOptions]
+    };
+    return fixedQuestion;
 }
 
 /**
@@ -238,6 +265,7 @@ export function changeQuestionTypeById(
  *
  * Remember, if a function starts getting too complicated, think about how a helper function
  * can make it simpler! Break down complicated tasks into little pieces.
+ * ---COMPLETE
  */
 export function editOption(
     questions: Question[],
@@ -245,7 +273,15 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const addedOption: Question[] = questions.map(
+        (quest3: Question): Question =>
+            targetId === quest3.id
+                ? targetOptionIndex === -1
+                    ? { ...quest3, options: [...quest3.options, newOption] }
+                    : editOptionsHelper(quest3, targetOptionIndex, newOption)
+                : { ...quest3 }
+    );
+    return addedOption;
 }
 
 /***
