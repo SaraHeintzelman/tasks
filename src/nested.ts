@@ -1,8 +1,9 @@
 import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
-// 5 failing tests
+// 4 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -178,6 +179,7 @@ export function sameType(questions: Question[]): boolean {
  * Consumes an array of Questions and produces a new array of the same Questions,
  * except that a blank question has been added onto the end. Reuse the `makeBlankQuestion`
  * you defined in the `objects.ts` file.
+ * ---COMPLETE
  */
 export function addNewQuestion(
     questions: Question[],
@@ -185,7 +187,11 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    const newQuestion: Question[] = [
+        ...questions,
+        makeBlankQuestion(id, name, type)
+    ];
+    return newQuestion;
 }
 
 /***
