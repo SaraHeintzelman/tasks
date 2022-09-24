@@ -2,7 +2,7 @@ import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
-// 6 failing tests
+// 5 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -165,9 +165,13 @@ export function publishAll(questions: Question[]): Question[] {
 /***
  * Consumes an array of Questions and produces whether or not all the questions
  * are the same type. They can be any type, as long as they are all the SAME type.
+ * ---COMPLETE
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    const allType = questions.every(
+        (quest3: Question): boolean => quest3.type === questions[0].type
+    );
+    return allType;
 }
 
 /***
