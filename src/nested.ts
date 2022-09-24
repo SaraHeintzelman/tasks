@@ -3,7 +3,7 @@ import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { makeBlankQuestion } from "./objects";
 
-// 4 failing tests
+// 3 failing tests
 /**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
@@ -198,13 +198,20 @@ export function addNewQuestion(
  * Consumes an array of Questions and produces a new array of Questions, where all
  * the Questions are the same EXCEPT for the one with the given `targetId`. That
  * Question should be the same EXCEPT that its name should now be `newName`.
+ * ---COMPLETE
  */
 export function renameQuestionById(
     questions: Question[],
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const changedName: Question[] = questions.map(
+        (quest1: Question): Question =>
+            targetId === quest1.id
+                ? { ...quest1, name: newName }
+                : { ...quest1 }
+    );
+    return changedName;
 }
 
 /***
