@@ -1,7 +1,7 @@
 import { urlToHttpOptions } from "url";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { duplicateQuestion, makeBlankQuestion } from "./objects";
 
 // 1 failing tests
 /**
@@ -295,5 +295,21 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const targetIndex = questions.findIndex(
+        (quest4: Question): boolean => quest4.id === targetId
+    );
+    const duplicatedArray: Question[] = questions.map(
+        (quest4: Question): Question => ({
+            ...quest4,
+            options: [...quest4.options]
+        })
+    );
+    if (targetIndex !== -1) {
+        duplicatedArray.splice(
+            targetIndex + 1,
+            0,
+            duplicateQuestion(newId, questions[targetIndex])
+        );
+    }
+    return duplicatedArray;
 }
