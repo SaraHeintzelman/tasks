@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { setConstantValue } from "typescript";
+//import { setConstantValue } from "typescript";
 
 export function StartAttempt(): JSX.Element {
     const [attempts, setAttempts] = useState<number>(4);
