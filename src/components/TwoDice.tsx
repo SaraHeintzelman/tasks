@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { disposeEmitNodes } from "typescript";
 
 /**
  * Here is a helper function you *must* use to "roll" your die.
@@ -12,5 +13,19 @@ export function d6(): number {
 }
 
 export function TwoDice(): JSX.Element {
-    return <div>Two Dice</div>;
+    const [rightDie, setRight] = useState<number>(2);
+    const [leftDie, setLeft] = useState<number>(1);
+    return (
+        <div>
+            <span>
+                left-die: {leftDie} - right die: {rightDie}
+            </span>
+            <div>
+                <Button onClick={() => setRight(d6())}>Roll Right Die</Button>
+            </div>
+            <div>
+                <Button onClick={() => setLeft(d6())}>Roll Left Die</Button>
+            </div>
+        </div>
+    );
 }
