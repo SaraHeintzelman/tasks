@@ -12,7 +12,7 @@ export function EditMode(): JSX.Element {
     function updateName(event: React.ChangeEvent<HTMLInputElement>) {
         setUserName(event.target.value);
     }
-    function updateStudent(event: React.ChangeEvent<HTMLInputElement>) {
+    function updateStudent() {
         setStudent(!student);
     }
 
