@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 export function GiveAttempts(): JSX.Element {
     const [attempts, setAttempts] = useState<number>(3);
     const [requests, setRequests] = useState<string>("");
-
     return (
         <div>
             <h3>Give Attempts</h3>
