@@ -25,6 +25,7 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript
             </header>
             <Quizzer></Quizzer>
+            <div>COMPLETED FUNCTIONS:</div>
             {/*
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
