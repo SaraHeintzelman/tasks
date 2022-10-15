@@ -1,6 +1,6 @@
 import React from "react";
-import { Quiz } from "../interfaces/quiz";
-import { Question, QuestionType } from "../interfaces/question";
+//import { Quiz } from "../interfaces/quiz";
+//import { Question, QuestionType } from "../interfaces/question";
 
 export function Quizzer(): JSX.Element {
     return (
