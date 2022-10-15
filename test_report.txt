@@ -57,6 +57,7 @@ All files                    |   99.57 |    98.11 |     100 |   99.56 |
  src/interfaces              |       0 |        0 |       0 |       0 |                   
   answer.ts                  |       0 |        0 |       0 |       0 |                   
   question.ts                |       0 |        0 |       0 |       0 |                   
+  quiz.ts                    |       0 |        0 |       0 |       0 |                   
  src/quizzer                 |     100 |      100 |     100 |     100 |                   
   Quizzer.tsx                |     100 |      100 |     100 |     100 |                   
 -----------------------------|---------|----------|---------|---------|-------------------
@@ -64,5 +65,5 @@ All files                    |   99.57 |    98.11 |     100 |   99.56 |
 Test Suites: 21 passed, 21 total
 Tests:       135 passed, 135 total
 Snapshots:   0 total
-Time:        17.848 s
+Time:        11.542 s
 Ran all test suites.
